@@ -13,7 +13,7 @@ if (minutes < 10) {
     minutes = `0${minutes}`;
 }
     return(
-        <div className="Date">
+        <div className="DateFormat">
         {day} {hours}:{minutes}
         </div>
     );

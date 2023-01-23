@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import DateFormat from "./DateFormat";
 import "bootstrap/dist/css/bootstrap.css";
 import "./index.css";
 import "./Weather.css";
@@ -8,7 +9,6 @@ export default function Weather(props){
 const [weather, setWeather] = useState({ready: false});
 
 function handleResponse(response) {
-console.log(response.data);
 setWeather({
     ready: true,
     temperature: response.data.main.temp,
@@ -17,7 +17,7 @@ setWeather({
     city: response.data.name,
     icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
     description: response.data.weather[0].description,
-    date: "MONDAY",
+    date: new Date(response.data.dt*1000),
 });
 }
 
@@ -41,7 +41,7 @@ if (weather.ready) {
             </form>
             <h1>{weather.city}</h1>
             <ul>
-                <li>{weather.date}</li>
+                <li><DateFormat date={weather.date} /></li>
                 <li className="text-capitalize">{weather.description}</li>
             </ul>
             <div className="row mt-4">
@@ -60,10 +60,8 @@ if (weather.ready) {
     </div>
     );
 } else {
-    
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=6c8161756616103589832909859e4f86&units=metric`
     axios.get(apiUrl).then(handleResponse);
-
     return "Loading..."
 }
 }

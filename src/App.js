@@ -10,7 +10,7 @@ function App() {
       <Weather defaultCity="Krakow" />
       </div>
         <div className="Footer">
-            <footer className="sign">Coded with ☕&🍪 by WP<br /><a href="https://github.com/becauseidontlike/react-weather"
+            <footer className="sign">Coded with ☕&🍪 by WP<br /><a href="https://github.com/becauseidontlike/new-app"
              target="_blank" rel="noreferrer">Open-source code</a></footer>
         </div>
     </div>

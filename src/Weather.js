@@ -15,7 +15,7 @@ setWeather({
     wind: response.data.wind.speed,
     humidity: response.data.main.humidity,
     city: response.data.name,
-    icon: response.data.weather[0].icon,
+    icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
     description: response.data.weather[0].description,
     date: "MONDAY",
 });
@@ -46,7 +46,7 @@ if (weather.ready) {
             </ul>
             <div className="row mt-4">
                 <div className="col-6">
-                    <img src="http://openweathermap.org/img/wn/${weather.icon}@2x.png" alt={weather.description}></img>
+                    <img src={weather.icon} alt={weather.description}></img>
                <span className="temperature">{Math.round(weather.temperature)}</span><span className="unit">℃</span>
                 </div>
                 <div className="col-6">

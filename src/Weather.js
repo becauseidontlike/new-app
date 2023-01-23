@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./index.css";
 import "./Weather.css";
 
-export default function Weather(){
+export default function Weather(props){
 const [weather, setWeather] = useState({ready: false});
 
 function handleResponse(response) {
@@ -60,8 +60,8 @@ if (weather.ready) {
     </div>
     );
 } else {
-    let city = "Krakow";
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=6c8161756616103589832909859e4f86&units=metric`
+    
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=6c8161756616103589832909859e4f86&units=metric`
     axios.get(apiUrl).then(handleResponse);
 
     return "Loading..."

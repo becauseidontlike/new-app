@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <div className="container">  
-      <Weather />
+      <Weather defaultCity="Tokyo" />
       </div>
         <div className="Footer">
             <footer className="sign">Coded with ☕&🍪 by WP<br /><a href="https://github.com/becauseidontlike/react-weather"

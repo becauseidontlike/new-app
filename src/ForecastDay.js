@@ -2,8 +2,6 @@ import React from "react";
 
 
 export default function ForecastDay(props) {
-    console.log(props);
-
 function maxT() {
     let maxT = Math.round(props.data.temp.max);
     return `${maxT}°`;

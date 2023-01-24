@@ -11,7 +11,6 @@ const [city, setCity] = useState(props.defaultCity);
 const [weather, setWeather] = useState({ready: false});
 
 function handleResponse(response) {
-//console.log(response.data);
 setWeather({
     ready: true,
     coord: response.data.coord,
@@ -29,7 +28,6 @@ function search() {
     axios.get(apiUrl).then(handleResponse);    
 }
 
-
 function handleSubmit(event) {
     event.preventDefault();
     search();
@@ -38,7 +36,6 @@ function handleSubmit(event) {
 function handleCity(event) {
 setCity(event.target.value);
 }    
-
 
 if (weather.ready) {
     return (

@@ -24,9 +24,8 @@ setWeather({
     date: new Date(response.data.dt*1000),
 });
 }
-
 function search() {
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=6c8161756616103589832909859e4f86&units=metric`
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=3499ef150985eccadd080ff408a018df&units=metric`
     axios.get(apiUrl).then(handleResponse);    
 }
 

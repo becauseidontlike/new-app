@@ -4,14 +4,17 @@ import Info from "./Info";
 import "bootstrap/dist/css/bootstrap.css";
 import "./index.css";
 import "./Weather.css";
+import WeatherForecast from "./WeatherForecast";
 
 export default function Weather(props){
 const [city, setCity] = useState(props.defaultCity);
 const [weather, setWeather] = useState({ready: false});
 
 function handleResponse(response) {
+console.log(response.data);
 setWeather({
     ready: true,
+    coord: response.data.coord,
     temperature: response.data.main.temp,
     wind: response.data.wind.speed,
     humidity: response.data.main.humidity,
@@ -56,7 +59,7 @@ if (weather.ready) {
              </div>
             </form>
             <Info dataInfo={weather} />
-            
+            <WeatherForecast coord={weather.coord} />
         </div>
     </div>
     );

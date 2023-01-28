@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
 
 export default function ForecastDay(props) {
 
-console.log(props.data.weather[0].icon)
-
+let iconId = props.data.weather[0].icon;
+let link = `http://openweathermap.org/img/wn/${iconId}@2x.png`;
 
 function maxT() {
     let maxT = Math.round(props.data.temp.max);
@@ -26,7 +26,7 @@ return days[day];
     return(
         <div className="Forecastday">
                 <div className="forecastday">{day()}</div>
-                <div className="forecasticon"><img src="http://openweathermap.org/img/wn/01d@2x.png" alt="forecast-icon"></img></div>
+                <div className="forecasticon"><img src={link} alt="forecast-icon"></img></div>
                 <div className="forecasttemp"><span className="tempmax">{maxT()} |</span><span className="tempmin"> {minT()}</span></div>
         </div>
     );

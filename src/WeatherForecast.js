@@ -3,12 +3,9 @@ import "./WeatherForecast.css";
 import axios from "axios";
 import ForecastDay from "./ForecastDay";
 
-
-
 export default function WeatherForecast(props) {
 const [loaded, setLoaded] = useState(false);
 const [forecast, setForecast] = useState(null);
-
 
 useEffect(() => {
 setLoaded(false);
@@ -18,6 +15,7 @@ function handleResponse(response) {
 setForecast(response.data.daily);
 setLoaded(true);
 }
+
 
 if (loaded) {
 return (
